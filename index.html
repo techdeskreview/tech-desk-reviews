@@ -4,498 +4,553 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 1️⃣ SEO & Pinterest Metadata (Dinâmicos via JS) -->
-    <title>Tech Desk Reviews | High-End Workspace Analysis</title>
-    <meta name="description" id="meta-desc" content="Independent, data-driven reviews of high-performance desk gear, ergonomics, and productivity tools.">
+    <!-- 1️⃣ SEO & Pinterest Metadata (Dynamic via JS) -->
+    <title>Tech Desk Reviews | Professional Workspace Analysis</title>
+    <meta name="description" id="meta-desc" content="Independent, data-driven reviews of high-performance desk gear.">
     <link rel="canonical" id="canonical-link" href="https://SEU-DOMINIO/">
     
     <!-- Open Graph / Pinterest Rich Pins -->
     <meta property="og:type" id="og-type" content="website">
     <meta property="og:site_name" content="Tech Desk Reviews">
-    <meta property="og:title" id="og-title" content="Tech Desk Reviews | High-End Workspace Analysis">
-    <meta property="og:description" id="og-desc" content="Independent, data-driven reviews of high-performance desk gear, ergonomics, and productivity tools.">
-    <meta property="og:image" id="og-image" content="URL_DA_IMAGEM_VERTICAL_2x3">
-    <meta property="og:url" id="og-url" content="https://SEU-DOMINIO/">
+    <meta property="og:title" id="og-title" content="Tech Desk Reviews">
+    <meta property="og:description" id="og-desc" content="High-end workspace gear reviews.">
+    <meta property="og:image" id="og-image" content="">
+    <meta property="og:url" id="og-url" content="">
     <meta name="pinterest-rich-pin" content="true">
 
-    <!-- Tailwind CSS for high-performance utility styling -->
+    <!-- JSON-LD Placeholder -->
+    <script id="json-ld" type="application/ld+json">{}</script>
+
+    <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js for data visualization -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --brand-blue: #3b82f6;
-            --bg-dark: #050505;
-            --card-bg: #0f0f12;
-            --border-zinc: #1f1f23;
-            --text-zinc: #a1a1aa;
+            /* PINTEREST-FIRST PALETTE (White & Clean) */
+            --brand-accent: #2563eb;
+            --bg-page: #ffffff;
+            --bg-subtle: #f8fafc;
+            --text-main: #0f172a;
+            --text-body: #334155;
+            --border-light: #e2e8f0;
         }
+
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-zinc);
             font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-body);
             margin: 0;
-            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
+
+        /* Navigation */
         .nav-glass {
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-zinc);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
         }
-        .prose-title {
+
+        /* Typography - Editorial Standard */
+        h1, h2, h3 { color: var(--text-main); letter-spacing: -0.03em; }
+        
+        .prose h2 {
             font-weight: 800;
-            letter-spacing: -0.05em;
-            font-style: italic;
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
-        .card-midnight {
-            background: var(--card-bg);
-            border: 1px solid var(--border-zinc);
-            transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .card-midnight:hover {
-            border-color: var(--brand-blue);
-            transform: translateY(-4px);
-            background: #141417;
-            box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.2);
-        }
-        .card-midnight::after {
+        
+        .prose h2::before {
             content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 60%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            display: block;
+            width: 4px;
+            height: 1.5rem;
+            background: var(--brand-accent);
+            border-radius: 2px;
         }
-        .card-midnight:hover::after {
-            opacity: 1;
+
+        .prose p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem; 
         }
-        /* Amazon Button - E-commerce Standard */
+
+        /* Cards - Clean & Scannable */
+        .card-clean {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-clean:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+            border-color: var(--brand-accent);
+        }
+
+        /* Amazon Button - Frictionless Conversion (#FFD814) */
         .btn-amazon {
             background: #FFD814;
             color: #0F1111 !important;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 15px;
             text-transform: none;
-            letter-spacing: 0;
-            transition: all 0.2s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 32px;
-            border-radius: 9999px;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 99px; 
             border: 1px solid #FCD200;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+            width: 100%; /* Mobile optimized */
+            max-width: 320px;
+        }
+        @media(min-width: 768px) {
+            .btn-amazon { width: auto; }
         }
         .btn-amazon:hover {
             background: #F7CA00;
-            border-color: #F2C200;
             transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+
+        /* Pinterest Hero (2:3 Ratio) */
+        .pinterest-hero-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+        .pinterest-hero {
+            position: relative;
+            width: 100%;
+            padding-bottom: 150%; /* 2:3 Aspect Ratio */
+            background-color: var(--bg-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+        .pinterest-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        /* Quick Verdict Box */
+        .quick-verdict {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Chart Container */
         .chart-container {
             position: relative;
-            height: 350px;
             width: 100%;
-            max-width: 450px;
-            margin: 0 auto;
+            max-width: 500px;
+            margin: 2rem auto;
+            height: 350px;
         }
-        @keyframes viewIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        /* Spec Table - Scan-friendly */
+        .spec-table tr { border-bottom: 1px solid var(--border-light); }
+        .spec-table td { padding: 14px 0; font-size: 14px; }
+        .spec-label { 
+            color: var(--text-main); 
+            font-weight: 700; 
+            width: 35%; 
+            text-transform: uppercase; 
+            font-size: 11px;
+            letter-spacing: 0.05em;
         }
-        .animate-view {
-            animation: viewIn 0.6s ease-out forwards;
-        }
+
+        /* Animation */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Cookie Banner */
         #cookie-banner {
             position: fixed;
-            bottom: 24px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: #111114;
-            border: 1px solid #27272a;
+            width: calc(100% - 40px);
+            max-width: 500px;
+            background: #ffffff;
+            border: 1px solid var(--border-light);
             padding: 16px 24px;
-            border-radius: 4px;
-            z-index: 1000;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            z-index: 5000;
             display: none;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
-            width: calc(100% - 40px);
-            max-width: 550px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            gap: 16px;
         }
-        .spec-table tr {
-            border-bottom: 1px solid var(--border-zinc);
-        }
-        .spec-table td {
-            padding: 12px 0;
-            font-size: 13px;
-        }
-        .spec-label {
-            color: #fff;
-            font-weight: 700;
-            width: 40%;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        /* Decision Section (White) */
+        
+        /* Decision Section */
         .decision-section {
             background: #ffffff;
             border-radius: 12px;
-            padding: 2.5rem 1.5rem; /* Mobile Optimized */
+            padding: 2.5rem 1.5rem;
             text-align: center;
             margin-top: 1rem;
             position: relative;
             overflow: hidden;
-        }
-        @media (min-width: 768px) {
-            .decision-section {
-                padding: 3.5rem 2rem; /* Desktop Standard */
-            }
+            border: 1px solid var(--border-light);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
         }
         .decision-section::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 4px;
-            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
-            opacity: 0.3;
+            background: linear-gradient(90deg, transparent, #2563eb, transparent);
+            opacity: 0.5;
         }
     </style>
 </head>
-<body class="selection:bg-blue-500/30">
+<body class="selection:bg-blue-100 selection:text-blue-900">
 
+    <!-- Nav -->
     <nav class="nav-glass sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex flex-col cursor-pointer group" onclick="router.navigate('home')">
-                <span class="text-xl prose-title text-white uppercase italic transition-colors group-hover:text-blue-500">Tech Desk Reviews</span>
-                <span class="text-[9px] uppercase tracking-[0.4em] text-blue-500 font-bold leading-none">High-End Analysis</span>
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex flex-col cursor-pointer" onclick="router.navigate('home')">
+                <span class="text-lg font-extrabold tracking-tight text-slate-900">Tech Desk Reviews</span>
             </div>
-            <div class="flex gap-8 text-[10px] font-black uppercase tracking-widest text-zinc-500">
-                <button onclick="router.navigate('home')" class="hover:text-white transition-colors">Lab Reports</button>
-                <button onclick="router.navigate('about')" class="hover:text-white transition-colors hidden md:block">The Team</button>
+            <div class="flex gap-6 text-xs font-bold uppercase tracking-wide text-slate-500">
+                <button onclick="router.navigate('home')" class="hover:text-blue-600 transition-colors">Reviews</button>
+                <button onclick="router.navigate('about')" class="hover:text-blue-600 transition-colors">About</button>
             </div>
         </div>
     </nav>
 
-    <main id="app-view"></main>
+    <!-- Main Content -->
+    <main id="app-view" class="min-h-screen"></main>
 
-    <footer class="bg-black border-t border-zinc-900 py-24 text-center px-6 mt-12">
-        <div class="max-w-4xl mx-auto">
-            <nav class="flex justify-center flex-wrap gap-8 md:gap-12 mb-12 text-[11px] font-bold uppercase tracking-widest text-zinc-300">
-                <button onclick="router.navigate('about')" class="hover:text-white transition-colors">About Us</button>
-                <button onclick="router.navigate('disclaimer')" class="hover:text-white transition-colors">Affiliate Disclaimer</button>
-                <button onclick="router.navigate('privacy')" class="hover:text-white transition-colors">Privacy Policy</button>
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 py-16 text-center mt-20">
+        <div class="max-w-3xl mx-auto px-6">
+            <nav class="flex justify-center gap-8 mb-8 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <button onclick="router.navigate('about')" class="hover:text-slate-900">About</button>
+                <button onclick="router.navigate('disclaimer')" class="hover:text-slate-900">Disclaimer</button>
+                <button onclick="router.navigate('privacy')" class="hover:text-slate-900">Privacy</button>
             </nav>
-            <div class="mb-8 max-w-xl mx-auto">
-                <p class="text-[11px] text-zinc-400 leading-relaxed uppercase tracking-[0.1em]">
-                    Transparency Protocol: Tech Desk Reviews is an independent publication. As an Amazon Associate, we earn from qualifying purchases at no cost to you.
-                </p>
-            </div>
-            <p class="text-[11px] text-zinc-500 uppercase tracking-[0.2em] font-medium">&copy; 2024 Tech Desk Reviews. Professional Gear Laboratory.</p>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Tech Desk Reviews is an independent publisher. As an Amazon Associate, we earn from qualifying purchases.
+            </p>
+            <p class="text-xs text-slate-300 uppercase tracking-wider font-medium">
+                &copy; 2024 Tech Desk Reviews. Editorial Criteria Applied.
+            </p>
         </div>
     </footer>
 
-    <!-- GDPR Cookie Banner -->
-    <div id="cookie-banner" style="display: none;">
-        <p class="text-[11px] text-zinc-300 font-medium leading-tight">We use functional cookies for a high-performance experience. By continuing, you agree to our policies.</p>
-        <button onclick="acceptCookies()" class="text-[10px] font-black uppercase bg-white text-black px-5 py-2.5 rounded-sm tracking-widest hover:bg-zinc-200 transition-colors">Accept</button>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner">
+        <p class="text-xs text-slate-600 font-medium">We use cookies to improve performance.</p>
+        <button onclick="acceptCookies()" class="text-xs font-bold bg-slate-900 text-white px-4 py-2 rounded hover:bg-slate-800 transition-colors">OK</button>
     </div>
 
     <script>
-        /**
-         * STORE: Base de Dados do Site
-         */
+        // --- DATA STORE (UPDATED FOR SEO/PINTEREST) ---
         const store = {
             reviews: [
-                {
-                    id: 'keychron-q1-pro',
-                    title: 'Keychron Q1 Pro Review',
-                    category: 'Hardware',
-                    excerpt: 'The definitive wireless aluminum custom keyboard for professional desks.',
-                    stats: [95, 88, 85, 92], 
-                    price: '$199.00',
-                    // Link de afiliado Amazon com ASIN real e tag placeholder
-                    amazon: 'https://www.amazon.com/dp/B0BBB4L9Z3?tag=techdeskreviews-20',
-                    pros: ['Acoustically tuned aluminum chassis', 'Seamless QMK/VIA wireless support', 'Flexible double-gasket mount'],
-                    cons: ['Significant desktop weight', 'High entry cost for beginners'],
-                    specs: {
-                        'Weight': '2,260g (Built)',
-                        'Connectivity': 'BT 5.1 / Type-C',
-                        'Mounting': 'Double-Gasket',
-                        'Case Material': 'CNC 6063 Aluminum'
-                    },
-                    description: "The Keychron Q1 Pro represents a milestone in the 'mass-enthusiast' mechanical keyboard market. It bridges the gap between mass-produced gaming peripherals and boutique, multi-month lead time custom builds."
-                },
                 {
                     id: 'herman-miller-embody',
                     title: 'Herman Miller Embody Review',
                     category: 'Ergonomics',
-                    excerpt: 'Analyzing the bio-dynamic gold standard of high-performance seating.',
-                    stats: [98, 75, 96, 92],
-                    price: '$1,895.00',
-                    // Link de afiliado Amazon com ASIN real e tag placeholder
-                    amazon: 'https://www.amazon.com/dp/B01DGM7ZII?tag=techdeskreviews-20',
-                    pros: ['Dynamic pixelated back support', 'Industry-leading thermal textile', '12-year legendary warranty'],
-                    cons: ['Extremely high capital investment', 'Armrests lack 4D adjustment'],
-                    specs: {
-                        'Support': 'Pixelated Matrix',
-                        'Warranty': '12 Years',
-                        'Material': 'Recyclable Textile',
-                        'Max Load': '300 lbs'
-                    },
-                    description: "Designed specifically for long-duration desk labor, the Herman Miller Embody mimicks the human spine's natural micro-movements to reduce pressure buildup during intense cognitive work."
+                    tag: 'Editor Choice',
+                    excerpt: 'The definitive ergonomic chair for developers. Is it worth the $1,895 investment?',
+                    stats: [98, 75, 96, 92], 
+                    amazonUrl: 'https://www.amazon.com/dp/B01DGM7ZII?tag=techdeskreviews-20',
+                    // Updated to final asset path structure
+                    imageVertical: 'https://SEU-DOMINIO/assets/og/herman-miller-1000x1500.jpg', 
+                    rating: '9.8/10',
+                    bestFor: 'Developers, Back Pain Relief, 10h+ Sitters',
+                    notFor: 'Lounge seating, Budget < $1000',
+                    pros: ['Pixelated Back Support', 'Thermal Regulation', '12-Year Warranty'],
+                    cons: ['High Investment', 'No Headrest'],
+                    specs: { 'Warranty': '12 Years', 'Max Load': '300 lbs', 'Material': '4-Layer Textile' },
+                    description: "For professionals whose income depends on sitting at a desk, the ROI in health and focus is undeniable. The Embody actively promotes micro-movements, reducing spinal compression."
                 },
                 {
-                    id: 'mx-master-3s',
-                    title: 'Logitech MX Master 3S Review',
-                    category: 'Peripherals',
-                    excerpt: 'The precision standard for creative and engineering workflows.',
-                    stats: [92, 95, 94, 85],
-                    price: '$99.00',
-                    // Link de afiliado Amazon com ASIN real e tag placeholder
-                    amazon: 'https://www.amazon.com/dp/B09HM94VDS?tag=techdeskreviews-20',
-                    pros: ['MagSpeed Electromagnetic scroll', 'Silent clicking switches', 'Ergonomic palm support'],
-                    cons: ['Fixed right-hand design', 'Micro-USB omitted (USB-C only)'],
-                    specs: {
-                        'Sensor': '8K DPI Optical',
-                        'Buttons': '7 Programmable',
-                        'Battery': '70 Days',
-                        'Scroll': 'MagSpeed'
-                    },
-                    description: "Iterating on a legend, the 3S introduces silent switches and an 8K DPI sensor. It remains the undisputed king of productivity mice for those navigating complex timelines and spreadsheets."
+                    id: 'keychron-q1-pro',
+                    title: 'Keychron Q1 Pro Review',
+                    category: 'Keyboards',
+                    tag: 'Top Pick',
+                    excerpt: 'Wireless, aluminum, and fully customizable. The new standard for Mac setups.',
+                    stats: [95, 88, 85, 94],
+                    amazonUrl: 'https://www.amazon.com/dp/B0BBB4L9Z3?tag=techdeskreviews-20',
+                    imageVertical: 'https://SEU-DOMINIO/assets/og/keychron-q1-1000x1500.jpg',
+                    rating: '9.4/10',
+                    bestFor: 'Mac Users, Heavy Typists, Custom Enthusiasts',
+                    notFor: 'Travel (Too Heavy), Silent Offices (Stock)',
+                    pros: ['CNC Aluminum Body', 'Wireless QMK/VIA', 'Double-Gasket Mount'],
+                    cons: ['Heavy (2.2kg)', 'Pricey for beginners'],
+                    specs: { 'Weight': '2,260g', 'Switch': 'K Pro Red/Brown', 'Layout': '75%' },
+                    description: "Bridges the gap between gaming toys and custom builds. The acoustic tuning out of the box is exceptional for open office environments."
                 }
             ]
         };
 
-        /**
-         * VANILLA JS ROUTER & CHART MANAGEMENT
-         */
-        
-        // Global variable to store current chart instance to prevent canvas overlap/leaks
+        // --- GLOBAL CHART ---
         let activeChart = null;
+        let chartObserver = null;
 
+        // --- ROUTER ---
         const router = {
             navigate(viewId) {
                 const container = document.getElementById('app-view');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                // SEO & Metadata Updates (Obrigatório por Rota)
-                this.updateMetadata(viewId);
+                this.updateMeta(viewId);
 
-                if (viewId === 'home') {
-                    this.renderHome(container);
-                } else if (['about', 'disclaimer', 'privacy'].includes(viewId)) {
-                    this.renderLegal(container, viewId);
-                } else {
+                if (viewId === 'home') this.renderHome(container);
+                else if (['about', 'disclaimer', 'privacy'].includes(viewId)) this.renderStatic(container, viewId);
+                else {
                     const review = store.reviews.find(r => r.id === viewId);
-                    if (review) this.renderReview(container, review);
-                    else this.renderHome(container);
+                    review ? this.renderReview(container, review) : this.renderHome(container);
                 }
-                
                 window.location.hash = viewId;
             },
 
-            // 1️⃣ Função de Metadata Dinâmica
-            updateMetadata(viewId) {
-                const baseUrl = 'https://SEU-DOMINIO'; // Placeholder
+            updateMeta(viewId) {
+                const baseUrl = 'https://SEU-DOMINIO';
                 const metaDesc = document.getElementById('meta-desc');
                 const canonical = document.getElementById('canonical-link');
                 const ogTitle = document.getElementById('og-title');
                 const ogDesc = document.getElementById('og-desc');
                 const ogUrl = document.getElementById('og-url');
-                const ogType = document.getElementById('og-type');
+                const ogImage = document.getElementById('og-image');
+
+                // Clear previous JSON-LD
+                document.getElementById('json-ld').textContent = '';
 
                 if (viewId === 'home') {
-                    document.title = "Tech Desk Reviews | High-End Workspace Analysis";
-                    const desc = "Independent, data-driven reviews of high-performance desk gear, ergonomics, and productivity tools.";
+                    document.title = 'Tech Desk Reviews | Professional Workspace Analysis';
+                    const desc = 'Independent, data-driven reviews of high-performance desk gear, ergonomics, and productivity tools.';
                     metaDesc.content = desc;
                     canonical.href = `${baseUrl}/`;
-                    
                     ogTitle.content = document.title;
                     ogDesc.content = desc;
                     ogUrl.content = `${baseUrl}/`;
-                    ogType.content = "website";
-                } 
-                else if (['about', 'disclaimer', 'privacy'].includes(viewId)) {
+                    ogImage.content = `${baseUrl}/assets/og-home.jpg`;
+                } else if (['about', 'disclaimer', 'privacy'].includes(viewId)) {
                     document.title = `${viewId.charAt(0).toUpperCase() + viewId.slice(1)} | Tech Desk Reviews`;
-                }
-                else {
+                } else {
                     const review = store.reviews.find(r => r.id === viewId);
                     if (review) {
                         document.title = `${review.title} | Tech Desk Reviews`;
                         metaDesc.content = review.excerpt;
-                        canonical.href = `${baseUrl}/#${review.id}`;
-                        
+                        // Canonical now points to the permanent static URL structure
+                        canonical.href = `${baseUrl}/reviews/${review.id}/`;
                         ogTitle.content = review.title;
                         ogDesc.content = review.excerpt;
-                        ogUrl.content = `${baseUrl}/#${review.id}`;
-                        ogType.content = "article";
+                        ogUrl.content = `${baseUrl}/reviews/${review.id}/`;
+                        ogImage.content = review.imageVertical;
+
+                        // Inject JSON-LD for Review
+                        this.injectJSONLD(review);
                     }
                 }
             },
 
-            renderHome(container) {
-                // Destroy chart if leaving a review page
-                if (activeChart) {
-                    activeChart.destroy();
-                    activeChart = null;
-                }
+            injectJSONLD(data) {
+                const jsonLdData = {
+                    "@context": "https://schema.org",
+                    "@type": "Review",
+                    "itemReviewed": {
+                        "@type": "Product",
+                        "name": data.title.replace(' Review', ''), // Clean name
+                        "image": data.imageVertical
+                    },
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Tech Desk Reviews"
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": data.rating.split('/')[0],
+                        "bestRating": "10",
+                        "worstRating": "1"
+                    }
+                };
+                document.getElementById('json-ld').textContent = JSON.stringify(jsonLdData);
+            },
 
-                let cards = '';
-                store.reviews.forEach(r => {
-                    cards += `
-                        <article onclick="router.navigate('${r.id}')" class="card-midnight p-10 rounded-xl cursor-pointer group">
-                            <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-4 block">${r.category}</span>
-                            <h3 class="text-3xl font-bold text-white mb-4 italic group-hover:text-blue-400 transition-colors">${r.title}</h3>
-                            <p class="text-sm text-zinc-500 mb-8 font-light leading-relaxed">${r.excerpt}</p>
-                            <div class="text-[10px] font-black uppercase text-white tracking-widest border-b-2 border-blue-500 inline-block pb-1">Analyze Report &rarr;</div>
-                        </article>
-                    `;
-                });
+            renderHome(container) {
+                if (activeChart) { activeChart.destroy(); activeChart = null; }
+                
+                let cards = store.reviews.map(r => `
+                    <article onclick="router.navigate('${r.id}')" class="card-clean p-8 rounded-xl cursor-pointer group h-full flex flex-col">
+                        <div class="mb-6 h-48 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 overflow-hidden">
+                            <picture class="w-full h-full">
+                                <img src="${r.imageVertical}" alt="${r.title}" loading="lazy" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+                            </picture>
+                        </div>
+                        <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-3 block">${r.category}</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors">${r.title}</h3>
+                        <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">${r.excerpt}</p>
+                        <div class="text-[11px] font-bold uppercase text-slate-900 tracking-widest border-b border-slate-300 self-start pb-1">Read Review</div>
+                    </article>
+                `).join('');
 
                 container.innerHTML = `
-                    <div class="animate-view">
-                        <section class="py-32 md:py-48 text-center bg-gradient-to-b from-zinc-900/20 to-black px-6">
-                            <div class="max-w-4xl mx-auto">
-                                <span class="text-[10px] font-black text-blue-500 uppercase tracking-[0.6em] mb-10 block">Engineering Labs</span>
-                                <h1 class="text-6xl md:text-9xl prose-title text-white mb-8 leading-[0.9]">Workspace <br/><span class="text-blue-600">Performance.</span></h1>
-                                <p class="text-zinc-500 text-lg md:text-xl font-light max-w-xl mx-auto uppercase tracking-[0.2em] leading-relaxed">Editorial analysis for the modern technical workforce.</p>
-                            </div>
-                        </section>
-                        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-10 -mt-10 mb-20">
-                            ${cards}
-                        </div>
+                    <div class="fade-in max-w-5xl mx-auto px-6 py-16">
+                        <header class="text-center mb-16">
+                            <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">Workspace <span class="text-blue-600">Performance.</span></h1>
+                            <p class="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">Independent, data-driven analysis for the modern technical workforce.</p>
+                        </header>
+                        <div class="grid md:grid-cols-2 gap-8">${cards}</div>
                     </div>
                 `;
             },
 
             renderReview(container, data) {
-                let specRows = '';
-                for (const [key, val] of Object.entries(data.specs)) {
-                    specRows += `<tr><td class="spec-label">${key}</td><td class="text-zinc-500 font-mono text-right">${val}</td></tr>`;
-                }
+                const specRows = Object.entries(data.specs).map(([k, v]) => 
+                    `<tr><td class="spec-label">${k}</td><td class="text-right font-medium text-slate-600">${v}</td></tr>`
+                ).join('');
 
                 container.innerHTML = `
-                    <div class="max-w-4xl mx-auto px-6 py-20 animate-view">
-                        <button onclick="router.navigate('home')" class="text-[10px] font-black uppercase text-zinc-600 hover:text-white mb-16 tracking-[0.3em] transition-colors">&larr; Return to Lab Grid</button>
+                    <div class="fade-in max-w-3xl mx-auto px-6 py-12">
+                        <button onclick="router.navigate('home')" class="text-[10px] font-bold uppercase text-slate-400 hover:text-blue-600 mb-8 tracking-widest transition-colors">&larr; All Reviews</button>
                         
-                        <header class="mb-20">
-                            <span class="text-[10px] font-bold text-blue-500 uppercase tracking-[0.4em] mb-4 block">${data.category} // REPORT_ID_2024</span>
-                            <h1 class="text-5xl md:text-7xl prose-title text-white mb-10 leading-tight">${data.title}</h1>
-                            
-                            <div class="bg-blue-600/5 border-l-4 border-blue-600 p-8 rounded-sm">
-                                <p class="text-[10px] font-black text-white uppercase tracking-widest mb-2">Affiliate Compliance</p>
-                                <p class="text-xs text-zinc-400 italic leading-relaxed">As an Amazon Associate, we earn from qualifying purchases. Reviews are independent and strictly data-driven.</p>
-                            </div>
-                        </header>
-
-                        <div class="grid md:grid-cols-2 gap-16 mb-24 items-start bg-[#0a0a0c] border border-zinc-900 p-12 rounded-2xl">
-                            <div>
-                                <h4 class="text-[10px] font-black uppercase text-zinc-500 tracking-widest mb-10 text-center">Spectral Analysis</h4>
-                                <div class="chart-container">
-                                    <canvas id="radarChart"></canvas>
-                                </div>
-                            </div>
-                            <div class="space-y-12">
-                                <div>
-                                    <h5 class="text-[10px] font-black uppercase text-blue-500 mb-6 tracking-widest">Key Strengths</h5>
-                                    <ul class="space-y-4 text-sm text-zinc-300">
-                                        ${data.pros.map(p => `<li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">+</span> ${p}</li>`).join('')}
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h5 class="text-[10px] font-black uppercase text-red-500 mb-6 tracking-widest">Design Trade-offs</h5>
-                                    <ul class="space-y-4 text-sm text-zinc-300">
-                                        ${data.cons.map(c => `<li class="flex items-start"><span class="text-red-500 mr-3 font-bold">-</span> ${c}</li>`).join('')}
-                                    </ul>
-                                </div>
+                        <!-- Header -->
+                        <span class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3 block">${data.category}</span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight">${data.title}</h1>
+                        
+                        <!-- PINTEREST HERO IMAGE (2:3 Ratio) with Picture tag -->
+                        <div class="pinterest-hero-container">
+                            <div class="pinterest-hero mb-8 shadow-sm">
+                                <picture>
+                                    <source srcset="${data.imageVertical}.webp" type="image/webp">
+                                    <img src="${data.imageVertical}" alt="${data.title} - Vertical Layout" class="pinterest-img" width="1000" height="1500">
+                                </picture>
                             </div>
                         </div>
 
-                        <div class="grid md:grid-cols-2 gap-20 mb-24">
-                            <div class="legal-block">
-                                <h2 class="text-2xl font-black text-white italic mb-8 border-l-4 border-blue-600 pl-6 tracking-tight uppercase">Technical Analysis</h2>
-                                <p class="text-lg leading-relaxed text-zinc-400 font-light mb-8">${data.description}</p>
+                        <!-- 2️⃣ QUICK VERDICT & 1st CTA (Above the fold conversion) -->
+                        <div class="quick-verdict shadow-sm">
+                            <div class="flex items-center justify-between mb-4 border-b border-slate-200 pb-2">
+                                <span class="text-xs font-black uppercase text-slate-900 tracking-widest">Quick Verdict</span>
+                                <span class="text-lg font-black text-blue-600">${data.rating}</span>
                             </div>
-                            <div>
-                                <h2 class="text-[10px] font-black text-zinc-500 italic mb-8 uppercase tracking-widest">Lab Specifications</h2>
-                                <table class="w-full spec-table">
-                                    ${specRows}
-                                </table>
+                            <div class="grid grid-cols-1 gap-2 mb-6">
+                                <p class="text-xs text-slate-600"><strong class="text-slate-900">Best for:</strong> ${data.bestFor}</p>
+                                <p class="text-xs text-slate-400"><strong class="text-slate-500">Not ideal if:</strong> ${data.notFor}</p>
                             </div>
-                        </div>
-
-                        <!-- 3️⃣ Semantic Transition Bridge -->
-                        <div class="mt-20 mb-4 text-center">
-                            <p class="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em]">Purchase Consideration</p>
-                        </div>
-
-                        <!-- 4️⃣ DECISION / CONVERSION SECTION (PREMIUM WHITE) -->
-                        <div class="decision-section shadow-2xl">
-                            <h3 class="text-slate-900 font-extrabold text-3xl md:text-4xl mb-4 tracking-tight">Is this upgrade worth it?</h3>
-                            <p class="text-slate-500 text-sm md:text-base mb-10 max-w-lg mx-auto leading-relaxed">
-                                Verify the latest pricing and shipping availability directly on Amazon to see if it fits your workspace budget.
-                            </p>
-                            <!-- 5️⃣ Botão Amazon com atributos de segurança e compliance -->
-                            <a href="${data.amazon}" target="_blank" rel="nofollow sponsored noopener" class="btn-amazon gap-2">
+                            <a href="${data.amazonUrl}" target="_blank" rel="nofollow sponsored noopener" class="btn-amazon w-full md:w-auto text-center justify-center" onclick="trackClick('amazon_top', '${data.id}')">
                                 Check Price on Amazon
-                                <!-- External Link Icon -->
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                             </a>
-                            <!-- 4️⃣ Micro-disclaimer abaixo do CTA -->
-                            <p class="text-[9px] text-slate-400 mt-3">As an Amazon Associate, we earn from qualifying purchases.</p>
-                            <p class="text-[10px] text-slate-400 mt-6 uppercase tracking-widest font-bold">Secure Transaction via Amazon</p>
                         </div>
+
+                        <!-- Compliance -->
+                        <div class="mb-10 text-center">
+                            <p class="text-[10px] text-slate-400 italic">
+                                Transparency: Affiliate links support our lab. No cost to you.
+                            </p>
+                        </div>
+
+                        <!-- Content Body -->
+                        <div class="prose max-w-none mb-12">
+                            <p class="font-medium text-slate-700 text-lg">${data.description}</p>
+                            <h2>Lab Verdict</h2>
+                            <p>For professionals prioritizing health and output, this is a verified investment. The build quality justifies the entry price over a 5-year timeline.</p>
+                        </div>
+
+                        <!-- Technical Data -->
+                        <div class="grid md:grid-cols-2 gap-12 mb-16">
+                            <div>
+                                <h3 class="text-xs font-black uppercase text-slate-400 tracking-widest mb-6">Performance Map</h3>
+                                <div class="chart-container" id="chart-wrapper"><canvas id="radarChart"></canvas></div>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-black uppercase text-slate-400 tracking-widest mb-6">Specifications</h3>
+                                <table class="w-full spec-table">${specRows}</table>
+                            </div>
+                        </div>
+
+                        <!-- 3️⃣ SEMANTIC BRIDGE -->
+                        <div class="text-center mb-6 mt-12">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-white px-3 relative z-10">Purchase Consideration</span>
+                            <div class="h-px bg-slate-200 -mt-2"></div>
+                        </div>
+
+                        <!-- 4️⃣ DECISION SECTION (2nd CTA) -->
+                        <div class="decision-section shadow-lg mb-16">
+                            <h3 class="text-2xl font-extrabold text-slate-900 mb-3">Is it worth the upgrade?</h3>
+                            <p class="text-slate-500 text-sm mb-8 max-w-md mx-auto">Check current stock and pricing for your region directly on Amazon.</p>
+                            
+                            <a href="${data.amazonUrl}" target="_blank" rel="nofollow sponsored noopener" class="btn-amazon" onclick="trackClick('amazon_main', '${data.id}')">
+                                Check Price on Amazon
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                            <p class="text-[10px] text-slate-400 mt-4">Secure transaction via Amazon.com</p>
+                        </div>
+
+                        <!-- Pros & Cons + 3rd CTA -->
+                        <div class="grid grid-cols-2 gap-8 mb-8 border-t border-b border-slate-100 py-8">
+                            <div>
+                                <h4 class="text-xs font-black uppercase text-blue-600 mb-4">Strengths</h4>
+                                <ul class="text-sm text-slate-600 space-y-2">
+                                    ${data.pros.map(p => `<li class="flex items-start gap-2"><span class="text-blue-600 font-bold">+</span> ${p}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-black uppercase text-slate-400 mb-4">Trade-offs</h4>
+                                <ul class="text-sm text-slate-600 space-y-2">
+                                    ${data.cons.map(c => `<li class="flex items-start gap-2"><span class="text-slate-400 font-bold">-</span> ${c}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-8">
+                             <a href="${data.amazonUrl}" target="_blank" rel="nofollow sponsored noopener" class="text-xs font-bold text-slate-900 hover:text-blue-600 underline decoration-slate-300 underline-offset-4" onclick="trackClick('amazon_bottom', '${data.id}')">See full details on Amazon &rarr;</a>
+                        </div>
+
                     </div>
                 `;
-                this.initChart(data.stats);
+                this.initLazyChart(data.stats);
             },
 
-            renderLegal(container, type) {
-                // Destroy chart if leaving a review page
-                if (activeChart) {
-                    activeChart.destroy();
-                    activeChart = null;
-                }
-
-                const content = {
-                    about: {
-                        title: "About the Lab.",
-                        body: "Tech Desk Reviews is a high-end publication focusing on the intersection of industrial design and workstation performance."
-                    },
-                    disclaimer: {
-                        title: "Affiliate Disclosure.",
-                        body: "Transparency is our primary currency. We participate in the Amazon Services LLC Associates Program."
-                    },
-                    privacy: {
-                        title: "Privacy Policy.",
-                        body: "We do not track individual users or sell data. We use functional cookies solely for performance analytics."
-                    }
-                };
-                const p = content[type];
+            renderStatic(container, viewId) {
+                const titles = { about: "About Us", disclaimer: "Disclaimer", privacy: "Privacy" };
                 container.innerHTML = `
-                    <div class="max-w-2xl mx-auto px-6 py-40 animate-view text-center">
-                         <button onclick="router.navigate('home')" class="text-[10px] font-black uppercase text-zinc-600 hover:text-white mb-16 tracking-widest">&larr; Back Home</button>
-                         <h1 class="text-6xl prose-title text-white mb-10">${p.title}</h1>
-                         <p class="text-xl text-zinc-400 font-light leading-relaxed italic border-l-2 border-zinc-800 pl-8">"${p.body}"</p>
+                    <div class="fade-in max-w-2xl mx-auto px-6 py-20 text-center">
+                        <button onclick="router.navigate('home')" class="text-[10px] font-bold uppercase text-slate-400 hover:text-blue-600 mb-8 tracking-widest">&larr; Back Home</button>
+                        <h1 class="text-4xl font-black text-slate-900 mb-6">${titles[viewId]}</h1>
+                        <p class="text-lg text-slate-500 leading-relaxed">Content for ${titles[viewId]} goes here. Transparency and trust are our core values.</p>
                     </div>
                 `;
             },
 
-            initChart(stats) {
-                // 6️⃣ Pre-destruction of chart before creating a new one
-                if (activeChart) {
-                    activeChart.destroy();
-                }
+            // 5️⃣ Performance: Lazy Load Chart
+            initLazyChart(stats) {
+                if (activeChart) activeChart.destroy();
+                
+                const wrapper = document.getElementById('chart-wrapper');
+                if(!wrapper) return; // Guard clause
 
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            this.drawChart(stats);
+                            observer.disconnect();
+                        }
+                    });
+                });
+                observer.observe(wrapper);
+            },
+
+            drawChart(stats) {
                 const ctx = document.getElementById('radarChart').getContext('2d');
                 activeChart = new Chart(ctx, {
                     type: 'radar',
@@ -503,10 +558,10 @@
                         labels: ['Quality', 'Value', 'Comfort', 'Aesthetic'],
                         datasets: [{
                             data: stats,
-                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            borderColor: '#2563eb',
                             borderWidth: 2,
-                            pointBackgroundColor: '#3b82f6',
+                            pointBackgroundColor: '#2563eb',
                             pointRadius: 4
                         }]
                     },
@@ -514,15 +569,11 @@
                         maintainAspectRatio: false,
                         scales: {
                             r: {
-                                grid: { color: '#1f1f23' },
-                                angleLines: { color: '#1f1f23' },
-                                pointLabels: { 
-                                    color: '#71717a', 
-                                    font: { size: 11, weight: 'bold', family: 'Inter' } 
-                                },
+                                grid: { color: '#e2e8f0' },
+                                angleLines: { color: '#e2e8f0' },
                                 ticks: { display: false },
-                                min: 0,
-                                max: 100
+                                pointLabels: { font: { size: 11, weight: 'bold' }, color: '#64748b' },
+                                min: 0, max: 100
                             }
                         },
                         plugins: { legend: { display: false } }
@@ -534,6 +585,13 @@
         function acceptCookies() {
             document.getElementById('cookie-banner').style.display = 'none';
             localStorage.setItem('techdesk_consent', 'true');
+        }
+
+        // Tracking Function Stub
+        function trackClick(position, id) {
+            console.log(`Tracking: Clicked ${position} on review ${id}`);
+            // Integration with GA4 would go here:
+            // gtag('event', 'click_amazon', { 'event_category': 'conversion', 'event_label': position, 'value': 1 });
         }
 
         window.onload = () => {
