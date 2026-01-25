@@ -522,12 +522,85 @@
             },
 
             renderStatic(container, viewId) {
-                const titles = { about: "About Us", disclaimer: "Disclaimer", privacy: "Privacy" };
+                const pages = {
+                    about: {
+                        title: "About Tech Desk Reviews",
+                        content: `
+                            <p>Tech Desk Reviews is an independent website dedicated to reviews, comparisons, and buying guides for desk setups, office technology, and productivity-focused equipment. Our content is designed for people who want to improve comfort, efficiency, and performance in their work or study environments.</p>
+                            <h3 class="text-lg font-bold text-slate-900 mt-8 mb-4">We publish:</h3>
+                            <ul class="list-disc pl-5 space-y-2 mb-6 text-slate-600">
+                                <li>In-depth reviews of desks, chairs, lighting, monitors, peripherals, and workspace accessories.</li>
+                                <li>Practical buying guides based on real-world use, budget, and specific needs.</li>
+                                <li>Clear comparisons focused on ergonomics, build quality, functionality, and value.</li>
+                            </ul>
+                            <p>Our goal is to simplify purchasing decisions by delivering practical, visual, and easy-to-understand content for users researching office and desk technology.</p>
+                            <p>Tech Desk Reviews may use affiliate links for products we recommend. We maintain editorial independence and prioritize honest evaluations and user experience.</p>
+                        `
+                    },
+                    disclaimer: {
+                        title: "Disclaimer",
+                        content: `
+                            <p>The content published on Tech Desk Reviews is for informational and educational purposes only. Reviews, opinions, and recommendations reflect research and usage at the time of publication and do not constitute professional, technical, or commercial advice.</p>
+                            <p>Product specifications, pricing, and availability may change at any time without notice. We do not guarantee the accuracy or completeness of such information.</p>
+                            <p>Any action taken based on the information found on this website is strictly at the reader’s own risk. Tech Desk Reviews is not responsible for any losses, damages, or issues resulting from the use of our content or the purchase of recommended products.</p>
+                            <p class="font-medium text-slate-800 mt-4">Affiliate Disclosure</p>
+                            <p>Some links on this site may be affiliate links. This means we may earn a commission if a purchase is made through those links, at no additional cost to the user. Affiliate relationships do not influence our reviews or recommendations.</p>
+                        `
+                    },
+                    privacy: {
+                        title: "Privacy Policy",
+                        content: `
+                            <p>Your privacy is important to Tech Desk Reviews. This Privacy Policy explains how information is collected, used, and protected when you visit this website.</p>
+                            
+                            <h3 class="text-lg font-bold text-slate-900 mt-8 mb-4">Information We Collect</h3>
+                            <p>We may automatically collect non-personal information such as:</p>
+                            <ul class="list-disc pl-5 space-y-2 mb-4 text-slate-600">
+                                <li>Browser type and device</li>
+                                <li>IP address</li>
+                                <li>Pages visited and time spent on the site</li>
+                                <li>Traffic sources (e.g., search engines or social platforms)</li>
+                            </ul>
+                            <p>This data is used solely for analytics and website improvement purposes.</p>
+
+                            <h3 class="text-lg font-bold text-slate-900 mt-8 mb-4">Cookies</h3>
+                            <p>Tech Desk Reviews uses cookies to:</p>
+                            <ul class="list-disc pl-5 space-y-2 mb-4 text-slate-600">
+                                <li>Ensure proper website functionality</li>
+                                <li>Analyze traffic and user behavior</li>
+                                <li>Track affiliate link performance</li>
+                            </ul>
+                            <p>You can disable cookies through your browser settings. Please note that doing so may affect certain site features.</p>
+
+                            <h3 class="text-lg font-bold text-slate-900 mt-8 mb-4">How We Use Information</h3>
+                            <p>Collected information is used to:</p>
+                            <ul class="list-disc pl-5 space-y-2 mb-4 text-slate-600">
+                                <li>Improve content quality, layout, and usability</li>
+                                <li>Measure site performance and engagement</li>
+                                <li>Manage affiliate programs and conversion tracking</li>
+                            </ul>
+                            <p>We do not sell, trade, or rent user data.</p>
+
+                            <h3 class="text-lg font-bold text-slate-900 mt-8 mb-4">Third-Party Services</h3>
+                            <p>We may use third-party tools such as analytics services and affiliate networks, which may collect data according to their own privacy policies.</p>
+
+                            <h3 class="text-lg font-bold text-slate-900 mt-8 mb-4">Data Security</h3>
+                            <p>We implement reasonable security measures to protect collected information. However, no method of transmission over the internet is completely secure.</p>
+
+                            <h3 class="text-lg font-bold text-slate-900 mt-8 mb-4">Policy Updates</h3>
+                            <p>This Privacy Policy may be updated periodically. Continued use of the site indicates acceptance of any changes.</p>
+                        `
+                    }
+                };
+
+                const page = pages[viewId];
+                
                 container.innerHTML = `
-                    <div class="fade-in max-w-2xl mx-auto px-6 py-20 text-center">
-                        <button onclick="router.navigate('home')" class="text-[10px] font-bold uppercase text-slate-400 hover:text-blue-600 mb-8 tracking-widest">&larr; Back Home</button>
-                        <h1 class="text-4xl font-black text-slate-900 mb-6">${titles[viewId]}</h1>
-                        <p class="text-lg text-slate-500 leading-relaxed">Content for ${titles[viewId]} goes here. Transparency and trust are our core values.</p>
+                    <div class="fade-in max-w-3xl mx-auto px-6 py-20">
+                        <button onclick="router.navigate('home')" class="text-[10px] font-bold uppercase text-slate-400 hover:text-blue-600 mb-8 tracking-widest transition-colors">&larr; Back Home</button>
+                        <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-10 tracking-tight">${page.title}</h1>
+                        <div class="prose max-w-none text-slate-600">
+                            ${page.content}
+                        </div>
                     </div>
                 `;
             },
