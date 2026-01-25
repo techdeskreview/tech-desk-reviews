@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Preview | Tech Desk Reviews</title>
+    
+    <!-- 1️⃣ SEO & Pinterest Metadata (Dinâmicos via JS) -->
+    <title>Tech Desk Reviews | High-End Workspace Analysis</title>
+    <meta name="description" id="meta-desc" content="Independent, data-driven reviews of high-performance desk gear, ergonomics, and productivity tools.">
+    <link rel="canonical" id="canonical-link" href="https://SEU-DOMINIO/">
+    
+    <!-- Open Graph / Pinterest Rich Pins -->
+    <meta property="og:type" id="og-type" content="website">
+    <meta property="og:site_name" content="Tech Desk Reviews">
+    <meta property="og:title" id="og-title" content="Tech Desk Reviews | High-End Workspace Analysis">
+    <meta property="og:description" id="og-desc" content="Independent, data-driven reviews of high-performance desk gear, ergonomics, and productivity tools.">
+    <meta property="og:image" id="og-image" content="URL_DA_IMAGEM_VERTICAL_2x3">
+    <meta property="og:url" id="og-url" content="https://SEU-DOMINIO/">
+    <meta name="pinterest-rich-pin" content="true">
+
     <!-- Tailwind CSS for high-performance utility styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js for data visualization -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --brand-blue: #3b82f6;
@@ -60,22 +75,29 @@
         .card-midnight:hover::after {
             opacity: 1;
         }
+        /* Amazon Button - E-commerce Standard */
         .btn-amazon {
-            background: #ff9900;
-            color: #000 !important;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
+            background: #FFD814;
+            color: #0F1111 !important;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: none;
+            letter-spacing: 0;
+            transition: all 0.2s ease;
             text-decoration: none;
-            display: inline-block;
-            padding: 1.25rem 2.5rem;
-            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 9999px;
+            border: 1px solid #FCD200;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .btn-amazon:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 50px rgba(255, 153, 0, 0.3);
-            background: #ffa524;
+            background: #F7CA00;
+            border-color: #F2C200;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         .chart-container {
             position: relative;
@@ -103,6 +125,7 @@
             z-index: 1000;
             display: none;
             align-items: center;
+            justify-content: space-between;
             gap: 20px;
             width: calc(100% - 40px);
             max-width: 550px;
@@ -121,6 +144,29 @@
             width: 40%;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+        }
+        /* Decision Section (White) */
+        .decision-section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2.5rem 1.5rem; /* Mobile Optimized */
+            text-align: center;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .decision-section {
+                padding: 3.5rem 2rem; /* Desktop Standard */
+            }
+        }
+        .decision-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            opacity: 0.3;
         }
     </style>
 </head>
@@ -143,29 +189,29 @@
 
     <footer class="bg-black border-t border-zinc-900 py-24 text-center px-6 mt-12">
         <div class="max-w-4xl mx-auto">
-            <nav class="flex justify-center flex-wrap gap-8 md:gap-12 mb-12 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
-                <button onclick="router.navigate('about')" class="hover:text-white transition-colors">About</button>
-                <button onclick="router.navigate('disclaimer')" class="hover:text-white transition-colors">Disclaimer</button>
-                <button onclick="router.navigate('privacy')" class="hover:text-white transition-colors">Privacy</button>
+            <nav class="flex justify-center flex-wrap gap-8 md:gap-12 mb-12 text-[11px] font-bold uppercase tracking-widest text-zinc-300">
+                <button onclick="router.navigate('about')" class="hover:text-white transition-colors">About Us</button>
+                <button onclick="router.navigate('disclaimer')" class="hover:text-white transition-colors">Affiliate Disclaimer</button>
+                <button onclick="router.navigate('privacy')" class="hover:text-white transition-colors">Privacy Policy</button>
             </nav>
             <div class="mb-8 max-w-xl mx-auto">
-                <p class="text-[12px] text-zinc-400 leading-relaxed uppercase tracking-[0.1em]">
-                    Tech Desk Reviews is an independent publication. As an Amazon Associate, we earn from qualifying purchases at no cost to you.
+                <p class="text-[11px] text-zinc-400 leading-relaxed uppercase tracking-[0.1em]">
+                    Transparency Protocol: Tech Desk Reviews is an independent publication. As an Amazon Associate, we earn from qualifying purchases at no cost to you.
                 </p>
             </div>
-            <p class="text-[12px] text-zinc-500 uppercase tracking-[0.3em] font-medium">&copy; 2024 Tech Desk Reviews. All hardware purchases validated by our editorial staff.</p>
+            <p class="text-[11px] text-zinc-500 uppercase tracking-[0.2em] font-medium">&copy; 2024 Tech Desk Reviews. Professional Gear Laboratory.</p>
         </div>
     </footer>
 
     <!-- GDPR Cookie Banner -->
     <div id="cookie-banner" style="display: none;">
-        <p class="text-[11px] text-zinc-400 font-medium leading-tight">We use technical cookies for a high-performance experience. By continuing, you agree to our policies.</p>
+        <p class="text-[11px] text-zinc-300 font-medium leading-tight">We use functional cookies for a high-performance experience. By continuing, you agree to our policies.</p>
         <button onclick="acceptCookies()" class="text-[10px] font-black uppercase bg-white text-black px-5 py-2.5 rounded-sm tracking-widest hover:bg-zinc-200 transition-colors">Accept</button>
     </div>
 
     <script>
         /**
-         * APPLICATION STATE & DATA
+         * STORE: Base de Dados do Site
          */
         const store = {
             reviews: [
@@ -174,9 +220,10 @@
                     title: 'Keychron Q1 Pro Review',
                     category: 'Hardware',
                     excerpt: 'The definitive wireless aluminum custom keyboard for professional desks.',
-                    stats: [95, 88, 85, 92], // Quality, Value, Comfort, Aesthetic
+                    stats: [95, 88, 85, 92], 
                     price: '$199.00',
-                    amazon: 'https://amazon.com',
+                    // Link de afiliado Amazon com ASIN real e tag placeholder
+                    amazon: 'https://www.amazon.com/dp/B0BBB4L9Z3?tag=techdeskreviews-20',
                     pros: ['Acoustically tuned aluminum chassis', 'Seamless QMK/VIA wireless support', 'Flexible double-gasket mount'],
                     cons: ['Significant desktop weight', 'High entry cost for beginners'],
                     specs: {
@@ -194,7 +241,8 @@
                     excerpt: 'Analyzing the bio-dynamic gold standard of high-performance seating.',
                     stats: [98, 75, 96, 92],
                     price: '$1,895.00',
-                    amazon: 'https://amazon.com',
+                    // Link de afiliado Amazon com ASIN real e tag placeholder
+                    amazon: 'https://www.amazon.com/dp/B01DGM7ZII?tag=techdeskreviews-20',
                     pros: ['Dynamic pixelated back support', 'Industry-leading thermal textile', '12-year legendary warranty'],
                     cons: ['Extremely high capital investment', 'Armrests lack 4D adjustment'],
                     specs: {
@@ -212,7 +260,8 @@
                     excerpt: 'The precision standard for creative and engineering workflows.',
                     stats: [92, 95, 94, 85],
                     price: '$99.00',
-                    amazon: 'https://amazon.com',
+                    // Link de afiliado Amazon com ASIN real e tag placeholder
+                    amazon: 'https://www.amazon.com/dp/B09HM94VDS?tag=techdeskreviews-20',
                     pros: ['MagSpeed Electromagnetic scroll', 'Silent clicking switches', 'Ergonomic palm support'],
                     cons: ['Fixed right-hand design', 'Micro-USB omitted (USB-C only)'],
                     specs: {
@@ -227,14 +276,20 @@
         };
 
         /**
-         * VANILLA JS ROUTER
+         * VANILLA JS ROUTER & CHART MANAGEMENT
          */
+        
+        // Global variable to store current chart instance to prevent canvas overlap/leaks
+        let activeChart = null;
+
         const router = {
             navigate(viewId) {
                 const container = document.getElementById('app-view');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
-                // Content Generation
+                // SEO & Metadata Updates (Obrigatório por Rota)
+                this.updateMetadata(viewId);
+
                 if (viewId === 'home') {
                     this.renderHome(container);
                 } else if (['about', 'disclaimer', 'privacy'].includes(viewId)) {
@@ -245,11 +300,55 @@
                     else this.renderHome(container);
                 }
                 
-                // Update Hash
                 window.location.hash = viewId;
             },
 
+            // 1️⃣ Função de Metadata Dinâmica
+            updateMetadata(viewId) {
+                const baseUrl = 'https://SEU-DOMINIO'; // Placeholder
+                const metaDesc = document.getElementById('meta-desc');
+                const canonical = document.getElementById('canonical-link');
+                const ogTitle = document.getElementById('og-title');
+                const ogDesc = document.getElementById('og-desc');
+                const ogUrl = document.getElementById('og-url');
+                const ogType = document.getElementById('og-type');
+
+                if (viewId === 'home') {
+                    document.title = "Tech Desk Reviews | High-End Workspace Analysis";
+                    const desc = "Independent, data-driven reviews of high-performance desk gear, ergonomics, and productivity tools.";
+                    metaDesc.content = desc;
+                    canonical.href = `${baseUrl}/`;
+                    
+                    ogTitle.content = document.title;
+                    ogDesc.content = desc;
+                    ogUrl.content = `${baseUrl}/`;
+                    ogType.content = "website";
+                } 
+                else if (['about', 'disclaimer', 'privacy'].includes(viewId)) {
+                    document.title = `${viewId.charAt(0).toUpperCase() + viewId.slice(1)} | Tech Desk Reviews`;
+                }
+                else {
+                    const review = store.reviews.find(r => r.id === viewId);
+                    if (review) {
+                        document.title = `${review.title} | Tech Desk Reviews`;
+                        metaDesc.content = review.excerpt;
+                        canonical.href = `${baseUrl}/#${review.id}`;
+                        
+                        ogTitle.content = review.title;
+                        ogDesc.content = review.excerpt;
+                        ogUrl.content = `${baseUrl}/#${review.id}`;
+                        ogType.content = "article";
+                    }
+                }
+            },
+
             renderHome(container) {
+                // Destroy chart if leaving a review page
+                if (activeChart) {
+                    activeChart.destroy();
+                    activeChart = null;
+                }
+
                 let cards = '';
                 store.reviews.forEach(r => {
                     cards += `
@@ -271,7 +370,7 @@
                                 <p class="text-zinc-500 text-lg md:text-xl font-light max-w-xl mx-auto uppercase tracking-[0.2em] leading-relaxed">Editorial analysis for the modern technical workforce.</p>
                             </div>
                         </section>
-                        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-10 -mt-10">
+                        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-10 -mt-10 mb-20">
                             ${cards}
                         </div>
                     </div>
@@ -325,7 +424,6 @@
                             <div class="legal-block">
                                 <h2 class="text-2xl font-black text-white italic mb-8 border-l-4 border-blue-600 pl-6 tracking-tight uppercase">Technical Analysis</h2>
                                 <p class="text-lg leading-relaxed text-zinc-400 font-light mb-8">${data.description}</p>
-                                <p class="text-lg leading-relaxed text-zinc-400 font-light italic">The longevity of this investment is backed by superior material choice and high-fidelity industrial design.</p>
                             </div>
                             <div>
                                 <h2 class="text-[10px] font-black text-zinc-500 italic mb-8 uppercase tracking-widest">Lab Specifications</h2>
@@ -335,10 +433,26 @@
                             </div>
                         </div>
 
-                        <div class="bg-white rounded-md p-16 text-center shadow-2xl">
-                            <h3 class="text-zinc-900 font-black text-4xl mb-2 italic tracking-tighter">Acquire Gear</h3>
-                            <p class="text-zinc-500 uppercase text-[10px] font-bold tracking-[0.2em] mb-10">MSRP: ${data.price} &bull; Check Current Listings</p>
-                            <a href="${data.amazon}" target="_blank" class="btn-amazon text-xs">Verify Price on Amazon &rarr;</a>
+                        <!-- 3️⃣ Semantic Transition Bridge -->
+                        <div class="mt-20 mb-4 text-center">
+                            <p class="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em]">Purchase Consideration</p>
+                        </div>
+
+                        <!-- 4️⃣ DECISION / CONVERSION SECTION (PREMIUM WHITE) -->
+                        <div class="decision-section shadow-2xl">
+                            <h3 class="text-slate-900 font-extrabold text-3xl md:text-4xl mb-4 tracking-tight">Is this upgrade worth it?</h3>
+                            <p class="text-slate-500 text-sm md:text-base mb-10 max-w-lg mx-auto leading-relaxed">
+                                Verify the latest pricing and shipping availability directly on Amazon to see if it fits your workspace budget.
+                            </p>
+                            <!-- 5️⃣ Botão Amazon com atributos de segurança e compliance -->
+                            <a href="${data.amazon}" target="_blank" rel="nofollow sponsored noopener" class="btn-amazon gap-2">
+                                Check Price on Amazon
+                                <!-- External Link Icon -->
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                            <!-- 4️⃣ Micro-disclaimer abaixo do CTA -->
+                            <p class="text-[9px] text-slate-400 mt-3">As an Amazon Associate, we earn from qualifying purchases.</p>
+                            <p class="text-[10px] text-slate-400 mt-6 uppercase tracking-widest font-bold">Secure Transaction via Amazon</p>
                         </div>
                     </div>
                 `;
@@ -346,23 +460,29 @@
             },
 
             renderLegal(container, type) {
+                // Destroy chart if leaving a review page
+                if (activeChart) {
+                    activeChart.destroy();
+                    activeChart = null;
+                }
+
                 const content = {
                     about: {
                         title: "About the Lab.",
-                        body: "Tech Desk Reviews is a high-end publication focusing on the intersection of industrial design and workstation performance. We test hardware to its failure points to ensure you build the best possible environment for your craft."
+                        body: "Tech Desk Reviews is a high-end publication focusing on the intersection of industrial design and workstation performance."
                     },
                     disclaimer: {
                         title: "Affiliate Disclosure.",
-                        body: "Transparency is our primary currency. We participate in the Amazon Services LLC Associates Program. If you use our links to purchase gear, we may earn a small referral fee. This does not impact our editorial integrity."
+                        body: "Transparency is our primary currency. We participate in the Amazon Services LLC Associates Program."
                     },
                     privacy: {
                         title: "Privacy Policy.",
-                        body: "We do not track individual users or sell data. We use functional cookies solely to maintain site state and performance analytics."
+                        body: "We do not track individual users or sell data. We use functional cookies solely for performance analytics."
                     }
                 };
                 const p = content[type];
                 container.innerHTML = `
-                    <div class="max-w-2xl mx-auto px-6 py-40 animate-view">
+                    <div class="max-w-2xl mx-auto px-6 py-40 animate-view text-center">
                          <button onclick="router.navigate('home')" class="text-[10px] font-black uppercase text-zinc-600 hover:text-white mb-16 tracking-widest">&larr; Back Home</button>
                          <h1 class="text-6xl prose-title text-white mb-10">${p.title}</h1>
                          <p class="text-xl text-zinc-400 font-light leading-relaxed italic border-l-2 border-zinc-800 pl-8">"${p.body}"</p>
@@ -371,8 +491,13 @@
             },
 
             initChart(stats) {
+                // 6️⃣ Pre-destruction of chart before creating a new one
+                if (activeChart) {
+                    activeChart.destroy();
+                }
+
                 const ctx = document.getElementById('radarChart').getContext('2d');
-                new Chart(ctx, {
+                activeChart = new Chart(ctx, {
                     type: 'radar',
                     data: {
                         labels: ['Quality', 'Value', 'Comfort', 'Aesthetic'],
@@ -393,7 +518,7 @@
                                 angleLines: { color: '#1f1f23' },
                                 pointLabels: { 
                                     color: '#71717a', 
-                                    font: { size: 10, weight: 'bold', family: 'Inter' } 
+                                    font: { size: 11, weight: 'bold', family: 'Inter' } 
                                 },
                                 ticks: { display: false },
                                 min: 0,
@@ -406,9 +531,6 @@
             }
         };
 
-        /**
-         * GLOBAL APP INITIALIZATION
-         */
         function acceptCookies() {
             document.getElementById('cookie-banner').style.display = 'none';
             localStorage.setItem('techdesk_consent', 'true');
