@@ -149,11 +149,11 @@
                 <button onclick="router.navigate('privacy')" class="hover:text-white transition-colors">Privacy</button>
             </nav>
             <div class="mb-8 max-w-xl mx-auto">
-                <p class="text-[10px] text-zinc-700 leading-relaxed uppercase tracking-[0.2em]">
+                <p class="text-[12px] text-zinc-400 leading-relaxed uppercase tracking-[0.1em]">
                     Tech Desk Reviews is an independent publication. As an Amazon Associate, we earn from qualifying purchases at no cost to you.
                 </p>
             </div>
-            <p class="text-[10px] text-zinc-800 uppercase tracking-[0.3em] font-medium">&copy; 2024 Tech Desk Reviews. All hardware purchases validated by our editorial staff.</p>
+            <p class="text-[12px] text-zinc-500 uppercase tracking-[0.3em] font-medium">&copy; 2024 Tech Desk Reviews. All hardware purchases validated by our editorial staff.</p>
         </div>
     </footer>
 
@@ -165,13 +165,7 @@
 
     <script>
         /**
-         * COMO ADICIONAR ARTIGOS:
-         * Para adicionar um novo artigo, basta copiar um dos blocos abaixo e colar dentro do array "reviews".
-         * Campos explicados:
-         * id: Nome único que aparecerá no link (ex: meu-novo-produto)
-         * title: Título grande que aparece no artigo
-         * stats: Números para o gráfico [Qualidade, Valor, Conforto, Estética] (0 a 100)
-         * amazon: O seu link de afiliado da Amazon
+         * APPLICATION STATE & DATA
          */
         const store = {
             reviews: [
@@ -180,7 +174,7 @@
                     title: 'Keychron Q1 Pro Review',
                     category: 'Hardware',
                     excerpt: 'The definitive wireless aluminum custom keyboard for professional desks.',
-                    stats: [95, 88, 85, 92], 
+                    stats: [95, 88, 85, 92], // Quality, Value, Comfort, Aesthetic
                     price: '$199.00',
                     amazon: 'https://amazon.com',
                     pros: ['Acoustically tuned aluminum chassis', 'Seamless QMK/VIA wireless support', 'Flexible double-gasket mount'],
@@ -229,15 +223,18 @@
                     },
                     description: "Iterating on a legend, the 3S introduces silent switches and an 8K DPI sensor. It remains the undisputed king of productivity mice for those navigating complex timelines and spreadsheets."
                 }
-                // DICA: Podes colar o próximo aqui em baixo!
             ]
         };
 
+        /**
+         * VANILLA JS ROUTER
+         */
         const router = {
             navigate(viewId) {
                 const container = document.getElementById('app-view');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
+                // Content Generation
                 if (viewId === 'home') {
                     this.renderHome(container);
                 } else if (['about', 'disclaimer', 'privacy'].includes(viewId)) {
@@ -248,6 +245,7 @@
                     else this.renderHome(container);
                 }
                 
+                // Update Hash
                 window.location.hash = viewId;
             },
 
@@ -327,6 +325,7 @@
                             <div class="legal-block">
                                 <h2 class="text-2xl font-black text-white italic mb-8 border-l-4 border-blue-600 pl-6 tracking-tight uppercase">Technical Analysis</h2>
                                 <p class="text-lg leading-relaxed text-zinc-400 font-light mb-8">${data.description}</p>
+                                <p class="text-lg leading-relaxed text-zinc-400 font-light italic">The longevity of this investment is backed by superior material choice and high-fidelity industrial design.</p>
                             </div>
                             <div>
                                 <h2 class="text-[10px] font-black text-zinc-500 italic mb-8 uppercase tracking-widest">Lab Specifications</h2>
@@ -350,15 +349,15 @@
                 const content = {
                     about: {
                         title: "About the Lab.",
-                        body: "Tech Desk Reviews is a high-end publication focusing on the intersection of industrial design and workstation performance."
+                        body: "Tech Desk Reviews is a high-end publication focusing on the intersection of industrial design and workstation performance. We test hardware to its failure points to ensure you build the best possible environment for your craft."
                     },
                     disclaimer: {
                         title: "Affiliate Disclosure.",
-                        body: "Transparency is our primary currency. We participate in the Amazon Services LLC Associates Program."
+                        body: "Transparency is our primary currency. We participate in the Amazon Services LLC Associates Program. If you use our links to purchase gear, we may earn a small referral fee. This does not impact our editorial integrity."
                     },
                     privacy: {
                         title: "Privacy Policy.",
-                        body: "We do not track individual users or sell data. We use functional cookies solely for performance analytics."
+                        body: "We do not track individual users or sell data. We use functional cookies solely to maintain site state and performance analytics."
                     }
                 };
                 const p = content[type];
@@ -407,6 +406,9 @@
             }
         };
 
+        /**
+         * GLOBAL APP INITIALIZATION
+         */
         function acceptCookies() {
             document.getElementById('cookie-banner').style.display = 'none';
             localStorage.setItem('techdesk_consent', 'true');
