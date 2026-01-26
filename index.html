@@ -86,7 +86,7 @@
             { id: 'Utility / Lifestyle', icon: Speaker, label: "Utility / Lifestyle", desc: "Audio & Power" }
         ];
 
-        // 🔥 PRODUTOS COM REVIEWS COMPLETOS (30 ITENS)
+        // 🔥 PRODUTOS COM REVIEWS COMPLETOS
         const PRODUCTS = [
             // 🪑 Core
             { 
@@ -800,9 +800,9 @@
                             Tech Desk<span className="text-blue-500 group-hover:text-[#FFD814] transition-colors">.</span>
                         </button>
                         <div className="hidden md:flex gap-6 text-sm font-bold text-slate-400 uppercase tracking-widest">
-                            <button onClick={() => setCurrentView('categories')} className="hover:text-white transition-colors focus:outline-none focus:text-[#FFD814]">Categories</button>
-                            <button onClick={() => setCurrentView('about')} className="hover:text-white transition-colors focus:outline-none focus:text-[#FFD814]">About</button>
-                            <button onClick={() => setCurrentView('privacy')} className="hover:text-white transition-colors focus:outline-none focus:text-[#FFD814]">Privacy</button>
+                            <button onClick={() => { window.location.hash = 'categories' }} className="hover:text-white transition-colors focus:outline-none focus:text-[#FFD814]">Categories</button>
+                            <button onClick={() => { window.location.hash = 'about' }} className="hover:text-white transition-colors focus:outline-none focus:text-[#FFD814]">About</button>
+                            <button onClick={() => { window.location.hash = 'privacy' }} className="hover:text-white transition-colors focus:outline-none focus:text-[#FFD814]">Privacy</button>
                         </div>
                     </div>
                     <div className="flex items-center gap-6 text-slate-400">
@@ -845,10 +845,10 @@
                         <button onClick={onClose} className="text-white p-2 hover:bg-white/10 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Close Menu"><X size={32} /></button>
                     </div>
                     <div className="flex-1 flex flex-col p-8 gap-8 justify-center items-center">
-                        <button onClick={() => navigateTo('categories')} className="group flex items-center gap-4 text-3xl font-black text-white hover:text-[#FFD814] transition-colors focus:outline-none focus:underline"><LayoutGrid size={32} className="text-blue-500 group-hover:text-[#FFD814]" /> Categories</button>
-                        <button onClick={() => navigateTo('about')} className="text-2xl font-bold text-slate-400 hover:text-white transition-colors focus:outline-none focus:underline">About Us</button>
-                        <button onClick={() => navigateTo('privacy')} className="text-2xl font-bold text-slate-400 hover:text-white transition-colors focus:outline-none focus:underline">Privacy Policy</button>
-                        <button onClick={() => navigateTo('disclaimer')} className="text-2xl font-bold text-slate-400 hover:text-white transition-colors focus:outline-none focus:underline">Affiliate Disclaimer</button>
+                        <button onClick={() => { window.location.hash = 'categories'; onClose(); }} className="group flex items-center gap-4 text-3xl font-black text-white hover:text-[#FFD814] transition-colors focus:outline-none focus:underline"><LayoutGrid size={32} className="text-blue-500 group-hover:text-[#FFD814]" /> Categories</button>
+                        <button onClick={() => { window.location.hash = 'about'; onClose(); }} className="text-2xl font-bold text-slate-400 hover:text-white transition-colors focus:outline-none focus:underline">About Us</button>
+                        <button onClick={() => { window.location.hash = 'privacy'; onClose(); }} className="text-2xl font-bold text-slate-400 hover:text-white transition-colors focus:outline-none focus:underline">Privacy Policy</button>
+                        <button onClick={() => { window.location.hash = 'disclaimer'; onClose(); }} className="text-2xl font-bold text-slate-400 hover:text-white transition-colors focus:outline-none focus:underline">Affiliate Disclaimer</button>
                     </div>
                     <div className="p-8 text-center bg-[#111827]"><p className="text-xs font-bold text-slate-600 uppercase tracking-[0.3em]">Professional Gear Analysis</p></div>
                 </div>
@@ -867,7 +867,7 @@
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {CATEGORIES.map((cat) => (
-                        <div key={cat.id} onClick={handleActivate(() => { setSelectedCategory(cat.id); setCurrentView('home'); setSearchQuery(''); })} onKeyDown={handleActivate(() => { setSelectedCategory(cat.id); setCurrentView('home'); setSearchQuery(''); })} className="bg-[#111827] border border-[#1f2933] p-8 rounded-2xl cursor-pointer hover:border-blue-500/50 hover:bg-[#161e31] transition-all group focus:outline-none focus:ring-2 focus:ring-blue-500" role="button" tabIndex={0} aria-label={`View ${cat.label} category`}>
+                        <div key={cat.id} onClick={() => { window.location.hash = `category/${cat.id}` }} onKeyDown={(e) => e.key === 'Enter' && (window.location.hash = `category/${cat.id}`)} className="bg-[#111827] border border-[#1f2933] p-8 rounded-2xl cursor-pointer hover:border-blue-500/50 hover:bg-[#161e31] transition-all group focus:outline-none focus:ring-2 focus:ring-blue-500" role="button" tabIndex={0} aria-label={`View ${cat.label} category`}>
                             <div className="mb-6 w-14 h-14 bg-black/40 rounded-xl flex items-center justify-center text-blue-500 group-hover:text-[#FFD814] group-hover:scale-110 transition-all"><cat.icon size={32} /></div>
                             <h3 className="text-2xl font-bold text-white mb-2">{cat.label}</h3>
                             <p className="text-slate-500 font-medium">{cat.desc}</p>
@@ -893,7 +893,7 @@
                             <span className="text-slate-400 text-lg uppercase tracking-[0.2em] font-medium">Professional gear analysis</span>
                             {(selectedCategory !== 'All' || searchQuery) && (
                                 <div className="ml-0 md:ml-4 flex gap-2 mt-4 md:mt-0">
-                                    {selectedCategory !== 'All' && !searchQuery && <button onClick={() => setSelectedCategory('All')} className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 hover:bg-blue-500/20 transition-colors focus:outline-none">{selectedCategory} <X size={14} /></button>}
+                                    {selectedCategory !== 'All' && !searchQuery && <button onClick={() => { window.location.hash = '' }} className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 hover:bg-blue-500/20 transition-colors focus:outline-none">{selectedCategory} <X size={14} /></button>}
                                     {searchQuery && <button onClick={() => setSearchQuery('')} className="inline-flex items-center gap-2 bg-yellow-500/10 text-yellow-400 px-3 py-1 rounded-full border border-yellow-500/20 hover:bg-yellow-500/20 transition-colors focus:outline-none">Search: "{searchQuery}" <X size={14} /></button>}
                                 </div>
                             )}
@@ -902,7 +902,7 @@
                     {filteredProducts.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {filteredProducts.map(product => (
-                                <div key={product.id} onClick={handleActivate(() => { setSelectedProduct(product); setCurrentView('review'); })} onKeyDown={handleActivate(() => { setSelectedProduct(product); setCurrentView('review'); })} className="bg-[#111827] border border-[#1f2933] rounded-xl overflow-hidden cursor-pointer group hover:border-blue-500/50 transition-all flex flex-col focus:outline-none focus:ring-2 focus:ring-blue-500" role="button" tabIndex={0} aria-label={`Read review for ${product.name}`}>
+                                <div key={product.id} onClick={() => { window.location.hash = `review/${product.id}` }} onKeyDown={(e) => e.key === 'Enter' && (window.location.hash = `review/${product.id}`)} className="bg-[#111827] border border-[#1f2933] rounded-xl overflow-hidden cursor-pointer group hover:border-blue-500/50 transition-all flex flex-col focus:outline-none focus:ring-2 focus:ring-blue-500" role="button" tabIndex={0} aria-label={`Read review for ${product.name}`}>
                                     <div className="relative aspect-[4/5] bg-gray-900 overflow-hidden">
                                         <ImageWithSkeleton src={product.image} alt={product.name} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
                                         <span className="absolute top-3 left-3 bg-black/80 text-white text-[10px] font-bold uppercase px-2 py-1 tracking-widest backdrop-blur-md">{product.category}</span>
@@ -930,7 +930,7 @@
             return (
                 <div className="max-w-3xl mx-auto px-6 py-12 animate-in slide-in-from-bottom-8">
                     <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500 mb-8">
-                        <button className="hover:text-white cursor-pointer focus:outline-none" onClick={() => setCurrentView('home')}>Home</button> <ChevronRight size={12} /> <span className="text-blue-500">{product.category}</span>
+                        <button className="hover:text-white cursor-pointer focus:outline-none" onClick={() => { window.location.hash = '' }}>Home</button> <ChevronRight size={12} /> <span className="text-blue-500">{product.category}</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-8 leading-[1.1]">{product.name}</h1>
                     <div className="mb-12 aspect-[2/3] w-full bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-white/5 relative group">
@@ -991,7 +991,7 @@
 
         const StaticView = ({ title, content, setCurrentView }) => (
             <div className="max-w-3xl mx-auto px-6 py-20 min-h-screen animate-in fade-in">
-                <button onClick={() => setCurrentView('home')} className="mb-8 text-xs font-bold text-blue-500 uppercase tracking-widest hover:underline focus:outline-none">&larr; Back Home</button>
+                <button onClick={() => { window.location.hash = '' }} className="mb-8 text-xs font-bold text-blue-500 uppercase tracking-widest hover:underline focus:outline-none">&larr; Back Home</button>
                 <h1 className="text-4xl font-black text-white mb-8 pb-4 border-b border-[#1f2933]">{title}</h1>
                 <div className="prose prose-invert prose-lg text-slate-400 leading-relaxed space-y-6">{content}</div>
             </div>
@@ -1011,6 +1011,60 @@
             useEffect(() => { const c = safeLocalStorage.getItem('techdesk_consent'); if (!c) setTimeout(() => setShowCookieBanner(true), 1000); }, []);
             const acceptCookies = () => { safeLocalStorage.setItem('techdesk_consent', 'true'); setShowCookieBanner(false); };
 
+            // ROUTER LOGIC
+            useEffect(() => {
+                const handleHashChange = () => {
+                    const hash = window.location.hash.replace('#/', '').replace('#', '');
+                    
+                    setIsMobileMenuOpen(false);
+                    setIsSearchOpen(false);
+                    safeScrollToTop();
+
+                    if (!hash) {
+                        setCurrentView('home');
+                        setSelectedCategory('All');
+                        setSelectedProduct(null);
+                        return;
+                    }
+
+                    if (hash === 'categories') {
+                        setCurrentView('categories');
+                        return;
+                    }
+
+                    if (hash.startsWith('category/')) {
+                        const catId = decodeURIComponent(hash.split('/')[1]);
+                        setSelectedCategory(catId);
+                        setCurrentView('home');
+                        return;
+                    }
+
+                    if (hash.startsWith('review/')) {
+                        const prodId = parseInt(hash.split('/')[1]);
+                        const product = PRODUCTS.find(p => p.id === prodId);
+                        if (product) {
+                            setSelectedProduct(product);
+                            setCurrentView('review');
+                        } else {
+                            window.location.hash = ''; 
+                        }
+                        return;
+                    }
+
+                    if (['about', 'privacy', 'disclaimer'].includes(hash)) {
+                        setCurrentView(hash);
+                        return;
+                    }
+                    
+                    setCurrentView('home');
+                };
+
+                window.addEventListener('hashchange', handleHashChange);
+                handleHashChange();
+
+                return () => window.removeEventListener('hashchange', handleHashChange);
+            }, []);
+
             const handleSearchSubmit = () => {
                 if (!searchQuery.trim()) return;
                 setIsSearchOpen(false);
@@ -1019,8 +1073,7 @@
             };
 
             const handleReset = () => {
-                setCurrentView('home');
-                setSelectedCategory('All');
+                window.location.hash = '';
                 setSearchQuery('');
             };
 
@@ -1067,8 +1120,8 @@
                     <footer className="bg-[#0b0f14] border-t border-[#1f2933] py-20 text-center mt-20">
                         <button className="text-2xl font-black text-white uppercase mb-8 cursor-pointer focus:outline-none" onClick={handleReset}>Tech Desk.</button>
                         <div className="flex justify-center gap-8 text-xs font-bold text-slate-600 uppercase tracking-widest cursor-pointer">
-                            <button onClick={() => setCurrentView('privacy')} className="hover:text-white focus:outline-none">Privacy</button>
-                            <button onClick={() => setCurrentView('disclaimer')} className="hover:text-white focus:outline-none">Affiliate</button>
+                            <button onClick={() => { window.location.hash = 'privacy' }} className="hover:text-white focus:outline-none">Privacy</button>
+                            <button onClick={() => { window.location.hash = 'disclaimer' }} className="hover:text-white focus:outline-none">Affiliate</button>
                         </div>
                         <p className="mt-8 text-xs text-slate-700">© {new Date().getFullYear()} Tech Desk Review.</p>
                     </footer>
