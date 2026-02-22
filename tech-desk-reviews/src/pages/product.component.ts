@@ -1,4 +1,3 @@
-
 import { Component, computed, inject, SecurityContext, EffectRef, effect } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PRODUCTS } from '../data';
@@ -147,8 +146,9 @@ export class ProductComponent {
   private metaService = inject(Meta);
   private document = inject(DOCUMENT);
   
-  productId = toSignal(this.route.paramMap.pipe(map(params => Number(params.get('id')))));
-  product = computed(() => PRODUCTS.find(p => p.id === this.productId()));
+  // LÓGICA ATUALIZADA: Lê a string (slug) da URL
+  productSlug = toSignal(this.route.paramMap.pipe(map(params => params.get('slug'))));
+  product = computed(() => PRODUCTS.find(p => p.slug === this.productSlug()));
   
   // Safe HTML content
   sanitizedContent = computed(() => {
