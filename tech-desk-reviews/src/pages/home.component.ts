@@ -113,7 +113,7 @@ import {
         @for (product of latestProducts; track product.id) {
           <article class="group cursor-pointer flex flex-col h-full">
             <a
-              [routerLink]="['/review', product.id]"
+              [routerLink]="['/review', product.slug]"
               class="block overflow-hidden rounded-lg bg-slate-100 aspect-[4/3] mb-6 relative shadow-sm"
             >
               <img
@@ -158,7 +158,7 @@ import {
               <h3
                 class="font-serif text-2xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-700 transition-colors"
               >
-                <a [routerLink]="['/review', product.id]">{{ product.name }}</a>
+                <a [routerLink]="['/review', product.slug]">{{ product.name }}</a>
               </h3>
               <p
                 class="text-slate-600 leading-relaxed text-sm line-clamp-3 mb-6 flex-grow"
@@ -166,7 +166,7 @@ import {
                 {{ product.summary }}
               </p>
               <a
-                [routerLink]="['/review', product.id]"
+                [routerLink]="['/review', product.slug]"
                 class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-blue-700 hover:text-blue-900 mt-auto group-hover:underline decoration-blue-200 underline-offset-4"
               >
                 Read Full Review
@@ -181,7 +181,6 @@ import {
 export class HomeComponent {
   categories = CATEGORIES;
 
-  // A MÁGICA ESTÁ AQUI: O .sort inverte a lista e coloca os IDs maiores (mais novos) primeiro
   latestProducts = [...PRODUCTS].sort((a, b) => b.id - a.id).slice(0, 9);
 
   private iconMap: any = {
