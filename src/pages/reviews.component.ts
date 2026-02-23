@@ -120,7 +120,6 @@ import {
                 [alt]="product.name"
                 loading="lazy"
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                (error)="handleImageError($event)"
               />
               <div
                 class="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-900 shadow-sm rounded-sm"
@@ -216,9 +215,5 @@ export class ReviewsComponent {
 
   getIcon(iconName: string): any {
     return this.iconMap[iconName] || Briefcase;
-  }
-
-  handleImageError(event: any) {
-    event.target.src = "https://picsum.photos/800/600?grayscale";
   }
 }
