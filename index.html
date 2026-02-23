@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Desk Reviews | Professional Gear Analysis</title>
+  <meta name="description" content="Independent editorial publication dedicated to the intersection of productivity, ergonomics, and workspace aesthetics.">
+  
+  <!-- Open Graph / Pinterest -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tech Desk Reviews | Professional Gear Analysis">
+  <meta property="og:description" content="High-end analysis for desk setups, ergonomics, and productivity gear.">
+  <meta property="og:image" content="assets/images/og/default-share.jpg">
+  <meta property="og:site_name" content="Tech Desk Reviews">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              black: '#1a1a1a',
+              text: '#334155', // slate-700
+              heading: '#0f172a', // slate-900
+              accent: '#2563eb', // blue-600
+              bg: '#ffffff',
+            },
+            amazon: {
+              yellow: '#FFD814',
+              hover: '#F7CA00',
+              text: '#0F1111'
+            }
+          },
+          typography: {
+            DEFAULT: {
+              css: {
+                color: '#334155',
+                h1: { fontFamily: 'Playfair Display, serif', color: '#0f172a' },
+                h2: { fontFamily: 'Playfair Display, serif', color: '#0f172a' },
+                h3: { fontFamily: 'Playfair Display, serif', color: '#0f172a' },
+                strong: { color: '#0f172a' },
+              }
+            }
+          }
+        }
+      },
+      plugins: [
+        function({ addBase, theme }) {
+          addBase({
+            'h1': { fontSize: theme('fontSize.4xl') },
+            'h2': { fontSize: theme('fontSize.3xl') },
+            'h3': { fontSize: theme('fontSize.2xl') },
+          })
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Tailwind Typography plugin simulation for prose classes -->
+  <style>
+    .prose { max-width: 65ch; }
+    .prose p { margin-top: 1.25em; margin-bottom: 1.25em; line-height: 1.75; }
+    .prose h2 { margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; font-weight: 700; }
+    .prose ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style-type: disc; padding-left: 1.625em; }
+    .prose li { margin-top: 0.5em; margin-bottom: 0.5em; }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://esm.sh/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://esm.sh/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://esm.sh/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://esm.sh/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://esm.sh/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://esm.sh/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/platform-browser": "https://esm.sh/@angular/platform-browser@^21.1.2?external=rxjs",
+    "@angular/compiler": "https://esm.sh/@angular/compiler@^21.1.2?external=rxjs",
+    "@angular/common": "https://esm.sh/@angular/common@^21.1.2?external=rxjs",
+    "@angular/core/rxjs-interop": "https://esm.sh/@angular/core@^21.1.2/rxjs-interop?external=rxjs",
+    "@angular/core": "https://esm.sh/@angular/core@^21.1.2?external=rxjs",
+    "@angular/router": "https://esm.sh/@angular/router@^21.1.2?external=rxjs"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-white text-slate-700 antialiased selection:bg-blue-100 selection:text-blue-900">
+  <app-root></app-root>
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+ORIGINAL FILENAME                    | FINAL FILENAME (kebab-case)
+-------------------------------------|---------------------------------------------------------
+Monomi 79 Electric Standing Desk.png | monomi-79-electric-standing-desk.png
+FLEXISPOT EN2 48 Standing Desk.jpg   | flexispot-en2-48-standing-desk.jpg
+SHW 55 Desk with Drawer.jpg          | shw-55-desk-with-drawer.jpg
+Marrap Ergonomic Mesh Chair.jpg      | marrap-ergonomic-mesh-chair.jpg
+TRALT Ergonomic Office Chair.jpg     | tralt-ergonomic-office-chair.jpg
+VIVO Dual Monitor Desk Mount.png     | vivo-dual-monitor-desk-mount.png
+VIVO 42 Electric Desk Converter.jpg  | vivo-42-electric-desk-converter.jpg
+WALI Monitor Stand Riser.png         | wali-monitor-stand-riser.png
+YAOHUOO 39 Dual Monitor Stand.png    | yaohuoo-39-dual-monitor-stand.png
+Lamicall Laptop Stand.png            | lamicall-laptop-stand.png
+Quntis Computer Monitor Lamp.png     | quntis-computer-monitor-lamp.png
+Architect LED Desk Lamp.png          | architect-led-desk-lamp.png
+Premium Double Head LED Lamp.jpg     | premium-double-head-led-lamp.jpg
+Bias Lighting Strip.jpg              | bias-lighting-strip.jpg
+RGB Wall Panels.jpg                  | rgb-wall-panels.jpg
+Vari Cable Management Tray.jpg       | vari-cable-management-tray.jpg
+No-Drill Under Desk Tray.jpg         | no-drill-under-desk-tray.jpg
+Amazon Basics Mesh Drawer.png        | amazon-basics-mesh-drawer.png
+JOYROOM Magnetic Cable Clips.png     | joyroom-magnetic-cable-clips.png
+Desk Side Storage Clamp.png          | desk-side-storage-clamp.png
+Satechi SM1 Slim Mechanical.png      | satechi-sm1-slim-mechanical.png
+Japanese XL Desk Mat.png             | japanese-xl-desk-mat.png
+Logitech Lift Vertical.png           | logitech-lift-vertical.png
+AULA F99 Custom Mechanical.png       | aula-f99-custom-mechanical.png
+Gel Wrist Rest.png                   | gel-wrist-rest.png
+6-Bay Hard Drive Enclosure.png       | 6-bay-hard-drive-enclosure.png
+ART GIFTREE Desk Shelf.png           | art-giftree-desk-shelf.png
+SVNNELP Under Desk Drawer.png        | svnnelp-under-desk-drawer.png
+ComfiLife Foot Rest.png              | comfilife-foot-rest.png
+XXXFLOWER Desktop Terrarium.png      | xxxflower-desktop-terrarium.png
+
+DIRECTORY STRUCTURE:
+/public/assets/images/products/  -> Main product images (as listed above)
+/public/assets/images/og/        -> Open Graph social share images (1.91:1 ratio)
+/public/assets/images/pinterest/ -> Pinterest vertical pins (2:3 ratio)
+
+NOTE: Filenames must be consistent across all directories.
