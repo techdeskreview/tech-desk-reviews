@@ -1487,7 +1487,7 @@ export const PRODUCTS: Product[] = [
       <div class="bg-slate-900 text-white p-8 rounded-2xl mt-12 shadow-xl text-center">
         <h2 class="text-2xl md:text-3xl font-black mb-4 text-white">Final Verdict</h2>
         <p class="text-slate-200 text-lg mb-8 leading-relaxed">
-          There isn’t a single answer for everyone. If you want luxury build and stay in the Apple ecosystem, the AirPods Max are stunning. 
+          There isn’t a single answer for everyone. If you want luxury build and stay in the Apple ecosystem, the AirPods Max are stunning. 
           <br><br>
           However, <strong>I kept the Sony WH-1000XM5</strong>. The 30-hour battery, significantly lighter weight (critical for comfort), and lower price tag make them the smarter tool for daily work.
         </p>
@@ -2458,13 +2458,13 @@ export const PRODUCTS: Product[] = [
       <div class="bg-slate-900 text-white p-8 rounded-2xl mt-12 shadow-xl text-center">
         <h2 class="text-2xl md:text-3xl font-black mb-4 text-white">Ready to Upgrade?</h2>
         <div class="flex flex-col gap-4 max-w-md mx-auto">
-           <a href="https://amzn.to/4aERRKF" target="_blank" rel="nofollow sponsored" class="block w-full py-4 bg-[#E60023] hover:bg-[#ad001b] text-white font-bold rounded-lg shadow-md transition-all text-center no-underline">
+           <a href="https://www.amazon.com/dp/B0G2SG3NFT?niid=nl_cl_lst_a_0_1&nrid=VCMB9ETZCNWAABRPMK8M&linkCode=ll2&tag=thetecheditor-20&linkId=ce83e5d6daec6006672684f4e272820f&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="nofollow sponsored" class="block w-full py-4 bg-[#E60023] hover:bg-[#ad001b] text-white font-bold rounded-lg shadow-md transition-all text-center no-underline">
             Check Logitech MX Master 3S
           </a>
-          <a href="https://amzn.to/4avu8Oo" target="_blank" rel="nofollow sponsored" class="block w-full py-4 bg-white text-slate-900 hover:bg-slate-100 font-bold rounded-lg shadow-md transition-all text-center no-underline">
+          <a href="https://www.amazon.com/Anker-Wireless-Vertical-Ergonomic-Optical/dp/B00BIFNTMC?&linkCode=ll2&tag=thetecheditor-20&linkId=036b5997924ba1a6abeaff147218b3bd&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="nofollow sponsored" class="block w-full py-4 bg-white text-slate-900 hover:bg-slate-100 font-bold rounded-lg shadow-md transition-all text-center no-underline">
             Check Anker Vertical Mouse
           </a>
-          <a href="https://amzn.to/4c7EZz8" target="_blank" rel="nofollow sponsored" class="block w-full py-4 bg-white text-slate-900 hover:bg-slate-100 font-bold rounded-lg shadow-md transition-all text-center no-underline">
+          <a href="https://www.amazon.com/Kensington-Expert-Wireless-Trackball-K72359WW/dp/B01936N73I?th=1&linkCode=ll2&tag=thetecheditor-20&linkId=ba749f70b473be96ddd190b84d9af235&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="nofollow sponsored" class="block w-full py-4 bg-white text-slate-900 hover:bg-slate-100 font-bold rounded-lg shadow-md transition-all text-center no-underline">
             Check Kensington Trackball
           </a>
         </div>
