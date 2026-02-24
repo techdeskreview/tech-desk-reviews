@@ -1,0 +1,67 @@
+{
+  "hash": "37c6e85e",
+  "configHash": "9911e59a",
+  "lockfileHash": "eda4a883",
+  "browserHash": "f790f76c",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "6ac10bc0",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "fed23de2",
+      "needsInterop": false
+    },
+    "@angular/core/rxjs-interop": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/rxjs-interop.mjs",
+      "file": "@angular_core_rxjs-interop.js",
+      "fileHash": "9fe5b41e",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "f6814d04",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "8022703f",
+      "needsInterop": false
+    },
+    "lucide-angular": {
+      "src": "../../../../../../node_modules/lucide-angular/fesm2020/lucide-angular.mjs",
+      "file": "lucide-angular.js",
+      "fileHash": "fc578888",
+      "needsInterop": false
+    },
+    "rxjs/operators": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
+      "file": "rxjs_operators.js",
+      "fileHash": "919e63bd",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-Q7XY62T5": {
+      "file": "chunk-Q7XY62T5.js"
+    },
+    "chunk-FMHUPUC6": {
+      "file": "chunk-FMHUPUC6.js"
+    },
+    "chunk-SKW4EW6G": {
+      "file": "chunk-SKW4EW6G.js"
+    },
+    "chunk-LUDQOQVM": {
+      "file": "chunk-LUDQOQVM.js"
+    },
+    "chunk-RCJZY57U": {
+      "file": "chunk-RCJZY57U.js"
+    }
+  }
+}

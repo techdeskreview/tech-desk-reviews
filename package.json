@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "ng serve",
+    "test:images": "node ./scripts/validate-image-paths.mjs",
+    "prebuild": "npm run test:images",
     "build": "ng build",
     "preview": "ng serve --configuration=production"
   },

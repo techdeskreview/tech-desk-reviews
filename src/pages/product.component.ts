@@ -1,9 +1,9 @@
-import { Component, computed, inject, SecurityContext, EffectRef, effect } from '@angular/core';
+import { Component, computed, inject, SecurityContext, effect } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PRODUCTS } from '../data';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
-import { DomSanitizer, SafeHtml, Title, Meta } from '@angular/platform-browser';
+import { DomSanitizer, Title, Meta } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -166,13 +166,9 @@ export class ProductComponent {
         this.metaService.updateTag({ name: 'description', content: p.summary });
         this.metaService.updateTag({ property: 'og:title', content: p.name });
         this.metaService.updateTag({ property: 'og:description', content: p.summary });
-        
-        // Construct paths for standardized assets
-        const filename = p.image.split('/').pop();
-        // OG Path: assets/images/og/[filename]
-        const ogImage = `assets/images/og/${filename}`;
-        
-        this.metaService.updateTag({ property: 'og:image', content: window.location.origin + '/' + ogImage });
+
+        const imagePath = this.normalizeImagePath(p.image);
+        this.metaService.updateTag({ property: 'og:image', content: window.location.origin + imagePath });
         
         this.addJsonLd(p);
       }
@@ -180,14 +176,11 @@ export class ProductComponent {
   }
 
   getPinterestShareUrl(p: any): string {
-      const filename = p.image.split('/').pop();
-      // Pinterest Path: assets/images/pinterest/[filename]
-      const pinterestImage = `assets/images/pinterest/${filename}`;
-      const mediaUrl = window.location.origin + '/' + pinterestImage;
-      const url = encodeURIComponent(window.location.href);
-      const media = encodeURIComponent(mediaUrl);
-      const description = encodeURIComponent(p.name);
-      return `https://pinterest.com/pin/create/button/?url=${url}&media=${media}&description=${description}`;
+    const mediaUrl = window.location.origin + this.normalizeImagePath(p.image);
+    const url = encodeURIComponent(window.location.href);
+    const media = encodeURIComponent(mediaUrl);
+    const description = encodeURIComponent(p.name);
+    return `https://pinterest.com/pin/create/button/?url=${url}&media=${media}&description=${description}`;
   }
 
   addJsonLd(product: any) {
@@ -204,7 +197,7 @@ export class ProductComponent {
       "@context": "https://schema.org/",
       "@type": "Product",
       "name": product.name,
-      "image": window.location.origin + '/' + product.image,
+      "image": window.location.origin + this.normalizeImagePath(product.image),
       "description": product.summary,
       "brand": {
         "@type": "Brand",
@@ -224,6 +217,10 @@ export class ProductComponent {
       }
     });
     this.document.head.appendChild(script);
+  }
+
+  private normalizeImagePath(imagePath: string): string {
+    return imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
   }
 
   handleImageError(event: any) {
