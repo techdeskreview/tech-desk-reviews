@@ -1265,7 +1265,7 @@ export const PRODUCTS: Product[] = [
         </ul>
 
         <div class="text-center border-t border-slate-700 pt-8 mt-8 relative z-10">
-          <a href="#" class="inline-block bg-[#E60023] hover:bg-[#ad001b] text-white font-bold py-3 px-8 rounded-full transition-colors no-underline shadow-lg hover:scale-105 transform">
+          <a href="/assets/docs/TechDesk_HomeOffice_Checklist.pdf" download="TechDesk_HomeOffice_Checklist.pdf" target="_blank" class="inline-block bg-[#E60023] hover:bg-[#ad001b] text-white font-bold py-3 px-8 rounded-full transition-colors no-underline shadow-lg hover:scale-105 transform">
             Download Checklist (PDF)
           </a>
         </div>
